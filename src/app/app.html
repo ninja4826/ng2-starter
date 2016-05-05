@@ -1,0 +1,22 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	<a href="#" class="navbar-brand">{{ name }}</a>
+	<ul class="nav navbar-nav">
+		<template ngFor #navLink [ngForOf]="navLinks">
+			<li *ngIf="navLink.comp" router-active>
+				<a [routerLink]="[navLink.comp]">{{ navLink.text }}</a>
+			</li>
+			<li *ngIf="navLink.link">
+				<a [href]="navLink.link">{{ navLink.text }}</a>
+			</li>
+		</template>
+	</ul>
+</nav>
+<div [class.container]="!fluid" [class.container-fluid]="fluid">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<router-outlet></router-outlet>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+</div>
