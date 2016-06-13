@@ -1,67 +1,22 @@
-<nav>
-	<div class="nav-wrapper">
-		<a [routerLink]="[Index]">{{ appName }}</a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li router-active>
-				<a [routerLink]="['About']">About</a>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	<a href="#" class="navbar-brand">{{ name }}</a>
+	<ul class="nav navbar-nav">
+		<template ngFor #navLink [ngForOf]="navLinks">
+			<li *ngIf="navLink.comp" router-active>
+				<a [routerLink]="[navLink.comp]">{{ navLink.text }}</a>
 			</li>
-		</ul>
-	</div>
+			<li *ngIf="navLink.link">
+				<a [href]="navLink.link">{{ navLink.text }}</a>
+			</li>
+		</template>
+	</ul>
 </nav>
-
 <div [class.container]="!fluid" [class.container-fluid]="fluid">
 	<div class="row">
-		<!--<div class="col-lg-1"></div>-->
-		<!--<div class="col-lg-10">-->
-		<!--	<router-outlet></router-outlet>-->
-		<!--</div>-->
-		<!--<div class="col-lg-1"></div>-->
-		
-		<div class="row">
-			<div class="col s12">
-				<ul class="tabs">
-					<li class="tab col s3"><a class="blue-text" href="#" (click)="tabSelect('pur')">Purchasing</a></li>
-					<li class="tab col s3"><a class="blue-text" href="#" (click)="tabSelect('man')">Manufacturing</a></li>
-					<li class="tab col s3"><a class="blue-text" href="#" (click)="tabSelect('inv')">Inventory</a></li>
-					<li class="tab col s3"><a class="blue-text" href="#" (click)="tabSelect('auto')">Automation</a></li>
-					<div class="indicator blue" style="z-index:1"></div>
-				</ul>
-			</div>
-			<!--<div class="col s4 pull-s8">-->
-			<!--	Sales area-->
-			<!--</div>-->
-			<!--<div class="col s8 push-s4">-->
-			<!--	<div id="purchasing-tab" class="col s12">-->
-			<!--		Purchasing area-->
-			<!--	</div>-->
-			<!--	<div id="manufacturing-tab" class="col s12">-->
-			<!--		Manufacturing area-->
-			<!--	</div>-->
-			<!--	<div id="inventory-tab" class="col s12">-->
-			<!--		Inventory area-->
-			<!--	</div>-->
-			<!--	<div id="automation-tab" class="col s12">-->
-			<!--		Automation area-->
-			<!--	</div>-->
-			<!--</div>-->
-			<div id="pur-tab" class="col s12">
-				Purchasing area
-			</div>
-			<div id="man-tab" class="col s12">
-				Manufacturing area
-			</div>
-			<div id="inv-tab" class="col s12">
-				Inventory area
-			</div>
-			<div id="auto-tab" class="col s12">
-				Automation area
-			</div>
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<router-outlet></router-outlet>
 		</div>
+		<div class="col-lg-1"></div>
 	</div>
 </div>
-<script type="text/javascript">
-	$(document).ready(function() {
-		console.log($('ul.tabs'));
-		$('ul.tabs').tabs();
-	});
-</script>
