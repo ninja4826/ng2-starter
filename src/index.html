@@ -31,11 +31,13 @@
 
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
-
-  <!-- Bootstrap 4 -->
-  <style>
-    require('./assets/sass/bootstrap_4/bootstrap-flex.scss')
-  </style>
+  
+  <!-- Google Icon Fonts -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Materialize CSS -->
+  <link type="text/css" rel="stylesheet" href="/assets/css/materialize.min.css" media="screen,projection">
+  
 </head>
 
 <body style="padding-top: 70px;">
@@ -55,12 +57,17 @@
     ga('send', 'pageview');
   </script>
 
-  <% if (webpackConfig.metadata.ENV === 'development') { %>
+  <!--<% if (webpackConfig.metadata.ENV === 'development') { %>-->
   <!-- Webpack Dev Server reload -->
-  <script src="/webpack-dev-server.js"></script>
-  <% } %>
+  <!--<script src="/webpack-dev-server.js"></script>-->
+  <!--<% } %>-->
   
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
 
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  
+  <!-- Materialize JS -->
+  <script type="text/javascript" src="/assets/js/materialize.min.js"></script>
 </body>
 </html>
